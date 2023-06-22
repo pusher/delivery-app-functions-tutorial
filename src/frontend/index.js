@@ -1,14 +1,14 @@
 Pusher.logToConsole = true;
 
 const pusher = new Pusher(
-  "", // Add your API key
+  "919770ae7a17ff655370", // Add your API key
   {
-    cluster: "", // Add your cluster
+    cluster: "eu", // Add your cluster
   }
 );
 
-const channel = pusher.subscribe("my-channel");
-channel.bind("my-event", (data) => {
+const channel = pusher.subscribe("delivery-channel");
+channel.bind("location-update-event", (data) => {
   if (data) {
     renderMessage(typeof data === "string" ? data : data?.message);
   }
